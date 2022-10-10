@@ -14,18 +14,22 @@ import com.app.service.IUomService;
 public class UomController {
 	@Autowired
 	private IUomService service;
-	
+
 	@GetMapping("/regUom")
-	public String showRegPage(){
+	public String showRegPage() {
 		return "UomRegister";
 	}
-	
+
 	@PostMapping("/insertUom")
-	public String saveUom(@ModelAttribute Uom uom,ModelMap map){
-		long uomId=service.save(uom);
-		map.addAttribute("message","UOM("+uomId+")Created");
+	public String saveUom(@ModelAttribute Uom uom, ModelMap map) {
+		long uomId = service.save(uom);
+		map.addAttribute("message", "UOM(" + uomId + ")Created");
 		return "UomRegister";
-				
+
+	}
+
+	public String show() {
+		return "UomRegister";
 	}
 
 }
